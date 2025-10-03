@@ -7,45 +7,28 @@
 </head>
 <body>
   <h1>Catálogo de Filmes</h1>
-  <div class="container">
+  <div id="lista-filmes" class="container"></div> 
 
-    <div class="card">
-      <img src="img/senhordosaneis.jpg" alt="O Senhor dos Anéis">
-      <h2>O Senhor dos Anéis: A Sociedade do Anel</h2>
-      <p><strong>Ano:</strong> 2001</p>
-      <p><strong>Gênero:</strong> Fantasia/Aventura</p>
-      <p>Um grupo parte em uma jornada para destruir o Um Anel.</p>
-      <a href="detalhes.html?id=1">Ver detalhes</a>
-    </div>
+  <script src="app.js"></script>
+  <script>
+    const lista = document.getElementById("lista-filmes");
 
-    <div class="card">
-      <img src="img/Interstellar.png" alt="Interestelar">
-      <h2>Interestelar</h2>
-      <p><strong>Ano:</strong> 2014</p>
-      <p><strong>Gênero:</strong> Ficção Científica</p>
-      <p>Exploradores viajam através de um buraco de minhoca em busca de um novo lar.</p>
-      <a href="detalhes.html?id=2">Ver detalhes</a>
-    </div>
-
-    <div class="card">
-      <img src="img/Joker.webp" alt="Coringa">
-      <h2>Coringa</h2>
-      <p><strong>Ano:</strong> 2019</p>
-      <p><strong>Gênero:</strong> Drama/Crime</p>
-      <p>A origem sombria de um dos maiores vilões da cultura pop.</p>
-      <a href="detalhes.html?id=3">Ver detalhes</a>
-    </div>
-
-    <div class="card">
-      <img src="img/Harry_Potter_Pedra_Filosofal_2001.jpg" alt="Harry Potter">
-      <h2>Harry Potter e a Pedra Filosofal</h2>
-      <p><strong>Ano:</strong> 2001</p>
-      <p><strong>Gênero:</strong> Fantasia</p>
-      <p>Harry descobre que é bruxo e enfrenta Voldemort pela primeira vez.</p>
-      <a href="detalhes.html?id=4">Ver detalhes</a>
-    </div>
-
-  </div>
+    if (lista) {
+      filmes.forEach(filme => {
+        lista.innerHTML += `
+          <div class="card">
+            <img src="${filme.imagem}" alt="${filme.titulo}">
+            <h2>${filme.titulo}</h2>
+            <p><strong>Ano:</strong> ${filme.ano}</p>
+            <p><strong>Gênero:</strong> ${filme.genero}</p>
+            <p>${filme.descricao}</p>
+            <a href="detalhes.html?id=${filme.id}">Ver detalhes</a>
+          </div>
+        `;
+      });
+    }
+  </script>
 </body>
 </html>
+
 
